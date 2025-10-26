@@ -74,10 +74,10 @@ src/
 
 🖼️ Screenshots
 
-![Demo1](demo/1.png)
-![Demo2](demo/2.png)
-![Demo3](demo/3.png)
-![Demo4](demo/4.png)
+![Demo1](Demo/1.png)
+![Demo2](Demo/2.png)
+![Demo3](Demo/3.png)
+![Demo4](Demo/4.png)
 
 👨‍💻 Author
 Designed & Developed by Shah Waqer Kabir
