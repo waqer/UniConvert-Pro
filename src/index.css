@@ -1,0 +1,297 @@
+/* ===== Base Layout ===== */
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #dbeafe 0%, #fef9c3 50%, #fecdd3 100%);
+  color: var(--text-color);
+  transition: background 0.6s ease-in-out, color 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+  --bg-color: #f8f9fa;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #212529;
+  --btn-bg: #0d6efd;
+  --btn-text: #ffffff;
+  --accent-color: #4c6ef5;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --card-bg: rgba(30, 30, 30, 0.9);
+  --text-color: #f8f9fa;
+  --btn-bg: #3b82f6;
+  --btn-text: #ffffff;
+  --accent-color: #60a5fa;
+}
+
+/* ===== Dark Mode Background Gradient ===== */
+body.dark-mode #root {
+  background: radial-gradient(circle at top left, #0f172a, #1e293b 60%, #000000 100%);
+}
+
+/* ===== Universal Converter Card ===== */
+.app-container {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(13, 110, 253, 0.05);
+  text-align: center;
+  max-width: 900px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition:
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    transform 0.3s ease;
+  animation: floatUp 0.6s ease-in-out;
+}
+
+.app-container:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(13, 110, 253, 0.1);
+}
+
+/* ===== Headings ===== */
+h2 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark mode heading glow */
+body.dark-mode h2 {
+  background: linear-gradient(90deg, #3b82f6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== Buttons ===== */
+.btn-custom {
+  background: linear-gradient(135deg, var(--btn-bg), var(--accent-color));
+  color: var(--btn-text);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+  background: linear-gradient(135deg, #0b5ed7, #5b21b6);
+}
+
+.btn-outline-custom {
+  border: 2px solid var(--btn-bg);
+  color: var(--btn-bg);
+  background: transparent;
+  border-radius: 10px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background: var(--btn-bg);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* ===== Dark Mode Toggle Button ===== */
+.theme-toggle {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: 2px solid var(--btn-bg);
+  color: var(--btn-bg);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.2);
+}
+
+.theme-toggle:hover {
+  background: var(--btn-bg);
+  color: white;
+  box-shadow: 0 0 15px rgba(13, 110, 253, 0.4);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Inputs & Form Controls ===== */
+input, select {
+  border-radius: 8px !important;
+  border: 1px solid #ced4da !important;
+  padding: 0.5rem !important;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: var(--btn-bg) !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.2) !important;
+}
+
+body.dark-mode input, body.dark-mode select {
+  background-color: #2a2a2a !important;
+  color: #f8f9fa !important;
+  border-color: #444 !important;
+}
+
+/* ===== Bootstrap Card Override ===== */
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border: none !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.dark-mode .card {
+  background: rgba(40, 40, 40, 0.8) !important;
+  color: #f8f9fa !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ===== Conversion Result Highlight ===== */
+.text-success {
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  color: #16a34a !important; /* Tailwind's green-600 */
+  text-shadow: 0 0 10px rgba(22, 163, 74, 0.3);
+  margin-top: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Subtle animation when value updates */
+.text-success::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 50px;
+  margin: 0.5rem auto 0;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* ===== Dark Mode Enhancement ===== */
+body.dark-mode .text-success {
+  color: #4ade80 !important; /* lighter green for contrast */
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #00c6ff, #6610f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  color: var(--text-color);
+  padding: 0.8rem 0;
+  opacity: 0.8;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.footer:hover {
+  opacity: 1;
+}
+
+.footer-link {
+  color: var(--btn-bg);
+  text-decoration: none;
+  font-weight: 400; /* normal weight */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--btn-bg);
+  text-shadow: 0 0 6px var(--btn-bg);
+}
+
+
+/* Fix select arrow overlapping text */
+.form-select {
+  padding-right: 2.5rem !important; /* extra room for dropdown arrow */
+  background-position: right 0.8rem center !important;
+  background-size: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 8px;
+  min-width: 130px;
+}
+
+/* Dark mode compatible select */
+body.dark-mode .form-select {
+  background-color: #2a2a2a;
+  color: #f8f9fa;
+  border: 1px solid #444;
+}
+
+body.dark-mode .form-select:focus {
+  border-color: var(--btn-bg);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
